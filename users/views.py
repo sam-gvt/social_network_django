@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserEditForm, UserRegisterForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from posts.models import Post
 
 
 def user_login(request):
@@ -16,7 +17,7 @@ def user_login(request):
 
             if userObject is not None:
                 login(request, userObject)
-                return redirect('/users/')
+                return redirect('/posts/')
 
             else:
                 return render(request, 'users/login.html', {'form':form, 'invalid_credentials':True})
@@ -27,11 +28,6 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('/users/login/')
-
-
-@login_required
-def index(request):
-    return render(request, 'users/index.html')
 
 
 def register(request):
@@ -60,6 +56,7 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            return redirect('/posts/')
 
     else:
         user_form = UserEditForm(instance=request.user)

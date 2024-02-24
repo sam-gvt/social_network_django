@@ -1,15 +1,38 @@
-{% extends 'users/base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
 
-<h1> Edit Profile </h1>
-<h2> Go to login </h2>
 
-<form method="post" enctype='multipart/form-data'>
+<div>
+<form method='POST' enctype="multipart/form-data" class="flex flex-col items-center mx-auto">
     {% csrf_token %}
-    {{ user_form.as_p }}
-    {{ profile_form.as_p }}
-    <input type='submit' />
+   
+    <div class="w-[50%]">
+        <label for="title" class="block mb-2 italic text-lg font-medium text-gray-900">
+            First name
+        </label>
+        {{ user_form.first_name }}
+       <label for="caption" class="block mb-2 italic text-lg font-medium text-gray-900">
+            Last name
+        </label>
+        {{ user_form.last_name }}
+        <label for="content" class="block mb-2 italic text-lg font-medium text-gray-900">
+            Email
+        </label>
+        {{ user_form.email }}
+    
+        <label for="image" class="block mb-2 italic text-lg font-medium text-gray-900">
+            Image
+        </label>
+        {{ profile_form.photo }}
+    </div> 
+
+    <div>
+        <button class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-5" type="submit">
+            Edit
+        </button>
+    </div>
 </form>
-
-
+</div>
 {% endblock %}
+

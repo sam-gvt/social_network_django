@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users',
     'posts',
 
+    'django_summernote',
     'tailwind',
     'theme',
     'django_browser_reload',

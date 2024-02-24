@@ -12,14 +12,90 @@
 	</head>
 
 	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+			
+        <nav class="bg-white ">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+                <a href="/posts/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap ">Speack about dev</span>
+                </a>
+                
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <div class="relative inline-block text-left">
+                        <div>
+                          <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            Account
+                            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                          </button>
+                        </div>
+                      
+                        <div id='menu-dropdown' class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                          <div class="py-1" role="none">
+                            <a href="{% url 'my_posts' %}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="my_posts">My posts</a>
+                            <a href="{% url 'password_change' %}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="chang_password">Change password</a>
+                            <a href="{%url 'edit'%}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="edit_account">Edit account</a>
+                            <a href="{%url 'logout'%}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="logout">Logout</a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="bg-gray-50  mb-20">
+            <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                <div class="flex items-center">
+                    <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                        <li>
+                            <a href="#">All</a>
+                        </li>
+                        <li>
+                            <a href="#"aria-current="page">Django</a>
+                        </li>
+                        <li>
+                            <a href="#">Front End</a>
+                        </li>
+                        <li>
+                            <a href="#" >Blockchain</a>
+                        </li>
+                        <li>
+                            <a href="#" >Cyber Security</a>
+                        </li>
+                        <li>
+                            <a href="#" >Jobs in IT</a>
+                        </li>
+                        <li>
+                            <a href="#" >NodeJS</a>
+                        </li>
+                        <li>
+                            <a href="#" >Database</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
 		<div class="container mx-auto h-screen">
-			<div class="flex flex-col items-center p-16">
-				<h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans"> Speack about Dev </h1>
-				<h2 class="mt-5 text-lg font-bold"> Langage, Security, IA, Blockchain and More ! </h2>
-			  </div>
-			{% block content %}
-			{% endblock %}
+			{% block content %} {% endblock %}
 		</div>
 		{% block js %} {%endblock%}
+        
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuButton = document.getElementById("menu-button");
+            var menu = document.getElementById("menu-dropdown");
+          
+            menuButton.addEventListener("click", function() {
+              if (menu.style.display === "block") {
+                menu.style.display = "none";
+              } else {
+                menu.style.display = "block";
+              }
+            });
+          
+    
+          });
+        </script>
 	</body>
 </html>

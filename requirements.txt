@@ -3,3 +3,4 @@ django-browser-reload==1.12.1
 django-tailwind==3.8.0
 
 
+#https://github.com/summernote/django-summernote
