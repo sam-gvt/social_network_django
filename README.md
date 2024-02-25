@@ -1,4 +1,4 @@
-# Ecommerce Django website
+# Blog Django website
 
 This is a blog website built with Django, javascript and tailwind.
 You need to have python installed.
@@ -13,17 +13,17 @@ KEY FEATURES :
 - tailwind css integration
 - admin management
 
-Users :
+- Users :
     - change password
     - register
     - login
     - logout
     - reset password
     - edit account
-Profile (extends Users):
+- Profile (extends Users):
     - image
 
-Posts :
+- Posts :
     - create Post
         - text edito integration (django-summernote)
     - order form
@@ -32,12 +32,13 @@ Posts :
 
 ![Alt Text 2](./theme/images/create_form.png)
 ```bash
-git clone https://github.com/sam-gvt/social_network_django.git
 ```
 ![Alt Text 3](./theme/images/post_detail.png)
 
-# Install requirements
+# Install 
 ```bash
+git clone https://github.com/sam-gvt/social_network_django.git
+
 pip install -r requirements.txt
 ```
 
