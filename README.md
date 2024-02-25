@@ -26,9 +26,9 @@ KEY FEATURES :
 - Posts :
     - create Post
         - text edito integration (django-summernote)
-    - order form
     - see all posts
     - see a post
+    - see my posts
 
 ![Alt Text 2](./theme/images/create_form.png)
 ```bash
